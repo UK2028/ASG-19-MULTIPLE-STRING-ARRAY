@@ -1,0 +1,444 @@
+NAME-UDIT KHANDELWAL							ASSIGNMENT-19
+
+
+1. Write a program to find the number of vowels in each of the 5 strings stored in two
+dimensional arrays, taken from the user.
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    char str[5][20],vowel[]="aeiou";
+    int i=0,j=0,k=0,count=0;
+    printf("enter 5 strings:\n");
+    while(i<5)
+    {
+        printf("enter %d string:",i+1);
+        gets(str[i]);
+        i++;
+    }
+    printf("string are:\n");
+    for(i=0;i<5;i++)
+    {
+        printf("%s\n",str[i]);
+    }
+    for(i=0;i<5;i++)
+    {
+        count=0;
+        for(k=0;k<20;k++)
+        {
+            for(j=0;j<5;j++)
+            {
+                if(str[i][k]==vowel[j])
+                    count++;
+            }
+        }
+        printf("no. of vowels in %s is: %d\n",str[i],count);
+    }
+    getch();
+}
+
+
+2. Write a program to sort 10 city names stored in two dimensional arrays, taken from
+the user.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+    char str[10][20],temp[20];
+    int i=0,j;
+    printf("enter 10 city names:\n");
+    while(i<10)
+    {
+        printf("enter city%d:",i+1);
+        gets(str[i]);
+        i++;
+    }
+    printf("city name before sorting:\n");
+    for(i=0;i<10;i++)
+    {
+        printf("%s\n",str[i]);
+    }
+    for(i=0;i<9;i++)
+    {
+        for(j=i+1;j<10;j++)
+        {
+            if(strcmp(str[i],str[j])>0)
+            {
+                strcpy(temp,str[i]);
+                strcpy(str[i],str[j]);
+                strcpy(str[j],temp);
+            }
+        }
+    }
+    printf("city names after sorting are:\n");
+    for(i=0;i<10;i++)
+    {
+        printf("%s ",str[i]);
+    }
+    getch();
+}
+
+
+3. Write a program to read and display a 2D array of strings in C language.
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    char str[10][20];
+    int i=0;
+    printf("enter 10 city names:\n");
+    while(i<10)
+    {
+        printf("enter city%d:",i+1);
+        gets(str[i]);
+        i++;
+    }
+    printf("city names are:\n");
+    for(i=0;i<10;i++)
+    {
+        printf("%s\n",str[i]);
+    }
+    getch();
+}
+
+4. Write a program to search a string in the list of strings.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+    char str[5][20],search[20];
+    int i=0,count=0;
+    printf("enter strings:\n");
+    while(i<5)
+    {
+        printf("enter string%d:",i+1);
+        gets(str[i]);
+        i++;
+    }
+    printf("string are:\n");
+    for(i=0;i<5;i++)
+    {
+        printf("%s\n",str[i]);
+    }
+    printf("enter string to be search:");
+    gets(search);
+    for(i=0;i<5;i++)
+    {
+        if(strcmp(str[i],search)==0)
+            {
+                printf("%s is found",search);
+                count=1;
+            }
+    }
+    if(count==0)
+        printf("%s is not found",search);
+    getch();
+}
+
+
+5. Suppose we have a list of email addresses, check whether all email addresses have
+‘@’ in it. Print the odd email out.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+    char str[5][20],email[5][20];
+    int i=0,j=0,count=0,check=0;
+    printf("enter emails:\n");
+    while(i<5)
+    {
+        printf("enter email%d:",i+1);
+        gets(str[i]);
+        i++;
+    }
+    printf("emails are:\n");
+    for(i=0;i<5;i++)
+    {
+        printf("%s\n",str[i]);
+    }
+    for(i=0;i<5;i++)
+    {
+        check=0;
+        for(j=0;j<strlen(str[i]);j++)
+        {
+            if(str[i][j]=='@')
+            {
+                check++;
+            }
+        }
+        if(check==0)
+        {
+            strcpy(email[count],str[i]);
+            count++;
+        }
+    }
+    if(count==0)
+        printf("no email is without '@'");
+    else
+    {
+        printf("emails without '@' are:\n");
+        for(i=0;i<count;i++)
+            printf("%s\n",email[i]);
+    }
+    getch();
+}
+
+
+6. Write a program to print the strings which are palindrome in the list of strings.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+    char str[5][20],pallindrome[5][20];
+    int i=0,j=0,count=0,check=0;
+    printf("enter strings:\n");
+    while(i<5)
+    {
+        printf("enter string%d:",i+1);
+        gets(str[i]);
+        i++;
+    }
+    printf("strings are:\n");
+    for(i=0;i<5;i++)
+    {
+        printf("%s\n",str[i]);
+    }
+    for(i=0;i<5;i++)
+    {
+        check=0;
+        for(j=0;j<(strlen(str[i])/2);j++)
+        {
+            if(str[i][j]==str[i][strlen(str[i])-j-1])
+            {
+                check++;
+            }
+        }
+        if(check!=0)
+        {
+            strcpy(pallindrome[count],str[i]);
+            count++;
+        }
+    }
+    if(count==0)
+        printf("no string is pallindrome");
+    else
+    {
+        printf("string with pallindrome are:\n");
+        for(i=0;i<count;i++)
+            printf("%s\n",pallindrome[i]);
+    }
+    getch();
+}
+
+
+7. From the list of IP addresses, check whether all ip addresses are valid.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+int invalid_ip(char s[]);
+int valid_part(char a[]);
+int main()
+{
+    char ip[5][20]={"128.0.0.1","125.15.100.1","125.512.100.1","125.512.100.abc","5555.555"},invalid[5][20],ip1[5][20];
+    int i,index=0;
+    for(i=0;i<5;i++)
+        strcpy(ip1[i],ip[i]);
+    for(i=0;i<5;i++)
+    {
+        if(invalid_ip(ip1[i]))
+        {
+            strcpy(invalid[index],ip[i]);
+            index++;
+        }
+    }
+    printf("invalid ip addresses are:\n");
+    if(index==0)
+        printf("no invalid ip addresses");
+    else
+    {
+        for(i=0;i<index;i++)
+            printf("%s\n",invalid[i]);
+    }
+    getch();
+}
+int invalid_ip(char s[])
+{
+    int i=0,dot=0,len=strlen(s);
+    char *a;
+    for(i=0;i<len;i++)
+    {
+        if(s[i]=='.')
+            dot++;
+    }
+    if(dot!=3)
+        return 1;
+    a=strtok(s,".");
+    while(a!=NULL)
+    {
+        if(valid_part(a))
+            {
+                a=strtok(NULL,".");
+            }
+        else
+            return 1;
+    }
+    return 0;
+}
+int valid_part(char num[20])
+{
+    int i,n=strlen(num);
+    if(n>3)
+        return 0;
+    for(i=0;i<n;i++)
+    {
+        if((num[i]>='0'&&num[i]<='9')==0)
+            return 0;
+    }
+    if(num[0]=='0'&&n>1)
+        return 0;
+    int value=atoi(num);
+    if(value>=0&&value<=255)
+    {
+        return 1;
+    }
+    else
+        return 0;
+}
+
+
+8. Given a list of words followed by two words, the task is to find the minimum distance
+between the given two words in the list of words.
+(Example : s = {“the”,”quick”,”brown”,”fox”,”quick”}
+word1 = “the”, word2 = “fox”, OUTPUT : 2 )
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+int main()
+{
+    char s[][20]={"the","quick","brown","fox","quick"};
+    char word1[]="the",word2[]="fox";
+    int i,j,min=100;
+    for(i=0;i<4;i++)
+    {
+        if(strcmp(s[i],word1)==0)
+        {
+            for(j=i+1;j<5;j++)
+            {
+                if(strcmp(s[j],word2)==0)
+                {
+                    if(min>abs(i-j))
+                        min=abs(i-j);
+                }
+            }
+        }
+    }
+    printf("minimum distance is: %d",min-1);
+    getch();
+}
+
+
+9. Write a program that asks the user to enter a username. If the username entered is
+one of the names in the list then the user is allowed to calculate the factorial of a
+number. Otherwise, an error message is displayed
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int factorial(int);
+int main()
+{
+    char list[5][20],username[20];
+    int i,j=0,num,f;
+    for(i=0;i<5;i++)
+        gets(list[i]);
+    printf("\nenter your username:");
+    gets(username);
+    for(i=0;i<5;i++)
+    {
+        if(strcmp(list[i],username)==0)
+        {
+            j=1;
+            printf("\nenter a number:");
+            scanf("%d",&num);
+            f=factorial(num);
+            printf("factorial of %d is: %d",num,f);
+            break;
+        }
+    }
+    if(j=0)
+        printf("error");
+    getch();
+}
+int factorial(int n)
+{
+    int i,fact=1;
+    while(n>0)
+    {
+        fact*=n;
+        n--;
+    }
+    return fact;
+}
+
+
+10. Create an authentication system. It should be menu driven.
+
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+    char user[3][2][20],username[20],password[20];
+    int i,j,flag=0;
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<2;j++)
+        {
+            if(j==0)
+            {
+                printf("enter username:");
+                gets(user[i][j]);
+            }
+            else
+            {
+                printf("enter password:");
+                gets(user[i][j]);
+            }
+        }
+    }
+    printf("enter your username:");
+    gets(username);
+    printf("enter your password:");
+    gets(password);
+    for(i=0;i<3;i++)
+    {
+        if(strcmp(user[i][0],username)==0)
+        {
+            flag++;
+            if(strcmp(user[i][1],password)==0)
+                {
+                    printf("login successfully");
+                }
+            else
+                printf("password is wrong");
+        }
+    }
+    if(flag==0)
+        printf("username entered is wrong");
+    getch();
+}
